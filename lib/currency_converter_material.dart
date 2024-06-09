@@ -38,19 +38,19 @@ class _CurrencyConverterMaterialState extends State<CurrencyConverterMaterial> {
     return Scaffold(
         backgroundColor: Colors.blueGrey,
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "INR: $convertedAmount",
-                style: const TextStyle(
-                    fontSize: 46,
-                    fontWeight: FontWeight.w600,
-                    color: Color.fromARGB(255, 255, 255, 255)),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "INR: ${convertedAmount.toStringAsFixed(2)}",
+                  style: const TextStyle(
+                      fontSize: 46,
+                      fontWeight: FontWeight.w600,
+                      color: Color.fromARGB(255, 255, 255, 255)),
+                ),
+                TextField(
                   controller: amountController,
                   keyboardType: const TextInputType.numberWithOptions(
                     decimal: true,
@@ -66,10 +66,8 @@ class _CurrencyConverterMaterialState extends State<CurrencyConverterMaterial> {
                     enabledBorder: border,
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
+                const SizedBox(height: 10),
+                ElevatedButton(
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.black,
@@ -86,8 +84,8 @@ class _CurrencyConverterMaterialState extends State<CurrencyConverterMaterial> {
                   },
                   child: const Text("Convert"),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ));
   }
